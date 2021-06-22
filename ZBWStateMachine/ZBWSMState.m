@@ -20,9 +20,15 @@
 @implementation ZBWSMState
 
 - (instancetype)initWithName:(nonnull NSString *)name
-               didEnterBlock:(nullable ZBWSMStateDidEnterBlock)enterBlock
-{
+               didEnterBlock:(nullable ZBWSMStateDidEnterBlock)enterBlock {
+    return [self initWithName:name flag:NSIntegerMax didEnterBlock:enterBlock];
+}
+
+- (instancetype _Nonnull )initWithName:(nonnull NSString *)name
+                                  flag:(NSInteger)flag
+                         didEnterBlock:(nullable ZBWSMStateDidEnterBlock)enterBlock {
     if (self = [super init]) {
+        self.flag = flag;
         self.name = name;
         self.didEnterBlock = enterBlock;
     }

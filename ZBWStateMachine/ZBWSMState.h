@@ -29,6 +29,8 @@ typedef void (^ZBWSMStateDidEnterBlock)(ZBWSMState * _Nonnull state, ZBWSMTransi
 @interface ZBWSMState : NSObject<ZBWSMStateProtocol>
 // 状态名
 @property (nonatomic, readonly) NSString                * _Nonnull name;
+// 标识。默认NSIntegerMax
+@property (nonatomic, assign) NSInteger                 flag;
 @property (nonatomic, weak) ZBWStateMachine              * _Nullable stateMachine;
 @property (nonatomic, readonly) ZBWSMStateDidEnterBlock _Nullable  didEnterBlock;
 
@@ -43,7 +45,20 @@ typedef void (^ZBWSMStateDidEnterBlock)(ZBWSMState * _Nonnull state, ZBWSMTransi
  @return 状态实例
  */
 - (instancetype _Nonnull )initWithName:(nonnull NSString *)name
-               didEnterBlock:(nullable ZBWSMStateDidEnterBlock)enterBlock;
+                         didEnterBlock:(nullable ZBWSMStateDidEnterBlock)enterBlock;
+
+/**
+ 状态 构造函数
+
+ @param name         状态名称
+ @param flag         标识
+ @param enterBlock   进入状态后的操作
+
+ @return 状态实例
+ */
+- (instancetype _Nonnull )initWithName:(nonnull NSString *)name
+                                  flag:(NSInteger)flag
+                         didEnterBlock:(nullable ZBWSMStateDidEnterBlock)enterBlock;
 
 
 @end

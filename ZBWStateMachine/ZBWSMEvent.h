@@ -15,10 +15,14 @@
  */
 @interface ZBWSMEvent : NSObject
 
-@property (nonatomic, copy) NSString        *name;
-@property (nonatomic, assign) NSInteger     uniqueId;
-@property (nonatomic) NSArray               *fromStates;
-@property (nonatomic) ZBWSMState             *toState;
+// 名称
+@property (nonatomic, copy) NSString                *name;
+// 唯一id，一个状态机中的事件，不能重复
+@property (nonatomic, assign, readonly) NSInteger   uniqueId;
+// 哪些状态可以接收 该事件
+@property (nonatomic, readonly) NSArray             *fromStates;
+// 接收到该事件后，转变到toState状态
+@property (nonatomic, readonly) ZBWSMState          *toState;
 
 
 + (instancetype)eventWithName:(NSString *)name

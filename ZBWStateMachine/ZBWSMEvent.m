@@ -8,6 +8,14 @@
 
 #import "ZBWSMEvent.h"
 
+@interface ZBWSMEvent ()
+
+@property (nonatomic, assign) NSInteger     uniqueId;
+@property (nonatomic) NSArray                       *fromStates;
+@property (nonatomic) ZBWSMState                    *toState;
+
+@end
+
 @implementation ZBWSMEvent
 
 + (instancetype)eventWithName:(NSString *)name
