@@ -28,7 +28,7 @@
 /**
  日志开关
 
- @param isOpen 【YES】打开  【NO】关闭；默认YES
+ @param isOpen 【YES】打开  【NO】关闭；默认NO
  */
 + (void)openLog:(BOOL)isOpen;
 

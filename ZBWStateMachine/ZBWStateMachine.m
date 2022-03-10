@@ -25,7 +25,7 @@
 #define ZBWSM_Log(formatStr, ...)
 #endif
 
-static BOOL s_ZBWStateMachine_isOpenLog = YES;
+static BOOL s_ZBWStateMachine_isOpenLog = NO;
 
 @interface ZBWStateMachine ()
 
